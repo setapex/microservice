@@ -1,7 +1,7 @@
-POST http://localhost:8000/items
+POST http://localhost:8000/create_item/
 Content-Type: application/json
 
 {
-  "name": "8",
-  "description": "8"
+  "name": "new",
+  "description": "new"
 }

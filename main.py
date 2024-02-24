@@ -32,7 +32,7 @@ def get_db():
     return db
 
 
-@app.get("/items", response_model=list)
+@app.get("/get_items/", response_model=list)
 async def read_items_api(db: Database = Depends(get_db)):
     try:
         await db.connect()
@@ -45,7 +45,7 @@ async def read_items_api(db: Database = Depends(get_db)):
         await db.disconnect()
 
 
-@app.get("/items/{item_id}", response_model=Item)
+@app.get("/get_item/{item_id}", response_model=Item)
 async def read_item_by_id(item_id: int, db: Database = Depends(get_db)):
     try:
         await db.connect()
@@ -61,7 +61,7 @@ async def read_item_by_id(item_id: int, db: Database = Depends(get_db)):
         await db.disconnect()
 
 
-@app.delete("/items", response_model=dict)
+@app.delete("/delete_items/", response_model=dict)
 async def delete_all_items(db: Database = Depends(get_db)):
     try:
         await db.connect()
@@ -76,7 +76,7 @@ async def delete_all_items(db: Database = Depends(get_db)):
         await db.disconnect()
 
 
-@app.delete("/items/{item_id}", response_model=dict)
+@app.delete("/delete_item/{item_id}", response_model=dict)
 async def delete_item_by_id(item_id: int, db: Database = Depends(get_db)):
     try:
         await db.connect()
@@ -96,7 +96,7 @@ async def delete_item_by_id(item_id: int, db: Database = Depends(get_db)):
         await db.disconnect()
 
 
-@app.post("/items", response_model=Item)
+@app.post("/create_item/", response_model=Item)
 async def create_item(item: Item, db: Database = Depends(get_db)):
     try:
         await db.connect()
@@ -110,7 +110,7 @@ async def create_item(item: Item, db: Database = Depends(get_db)):
         await db.disconnect()
 
 
-@app.put("/items/{item_id}", response_model=Item)
+@app.put("/change_item/{item_id}", response_model=Item)
 async def update_item(item_id: int, item: Item, db: Database = Depends(get_db)):
     try:
         await db.connect()

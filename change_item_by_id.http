@@ -1,7 +1,7 @@
-PUT http://localhost:8000/items/1
+PUT http://localhost:8000/change_item/1
 Content-Type: application/json
 
 {
-  "name": "new",
-  "description": "new"
+  "name": "neww",
+  "description": "neww"
 }

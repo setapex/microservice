@@ -1,1 +1,1 @@
-GET http://localhost:8000/items/6
+GET http://localhost:8000/get_item/1
